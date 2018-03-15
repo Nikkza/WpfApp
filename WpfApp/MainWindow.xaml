@@ -1,0 +1,56 @@
+﻿<Window x:Class="WpfApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="600">
+
+    <Grid Background="GhostWhite">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Button Name="LineButton" Style="{StaticResource Flat_Button}" Grid.Row="0" Grid.Column="0"  Content="Line"  Click="LineButton_Click" />
+        <Button Name="EllipseButton"  Style="{StaticResource Flat_Button}" Grid.Row="0"  Grid.Column="2"  Content="Circle"  Click="EllipseButton_Click"/>
+        <Button Name="RectangleButton"  Style="{StaticResource Flat_Button}" Grid.Row="0"  Grid.Column="4" Content="Rectangle"    Click="RectangleButton_Click"/>
+        <Button Name="FreeHandButton"  Style="{StaticResource Flat_Button}" Grid.Row="0" Grid.Column="6"  Content="Draw"  Click="FreeHandButton_Click"/>
+        <Button Name="ClearButton"  Style="{StaticResource Flat_Button}" Grid.Row="0" Grid.Column="8"  Content="Clear"   Click="ClearButton_Click" />
+        <Canvas  Name="MyCanvas" Style="{StaticResource CanvasStyle}"  Grid.Row="3"  Grid.ColumnSpan="4" Grid.Column="0"
+                 MouseDown="Canvas_MouseDown_1" MouseMove="Canvas_MouseMove_1" MouseUp="Canvas_MouseUp"/>
+
+        <Separator Style="{DynamicResource VerticalSeparatorStyle}" Grid.Row="0" Grid.Column="1" />
+        <Separator Style="{DynamicResource VerticalSeparatorStyle}" Grid.Row="0" Grid.Column="3" />
+        <Separator Style="{DynamicResource VerticalSeparatorStyle}" Grid.Row="0" Grid.Column="5" />
+        <Separator Style="{DynamicResource VerticalSeparatorStyle}" Grid.Row="0" Grid.Column="7" />
+
+        <Label Name="LabelFill" Style="{DynamicResource LabelStyle}" Grid.Column="0" Grid.Row="1" Content="Fill" />
+        <Label Name="LabelFillColor" Style="{DynamicResource LabelStyle}" Background="{Binding BindingColorFill}" Grid.Column="7" Grid.Row="1" Grid.ColumnSpan="2" />
+
+        <Rectangle Name="RectangleGreen" Style="{DynamicResource RecTangleStyle}" MouseDown="RectangleGreen_OnMouseDown" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Fill="Green" />
+        <Rectangle Name="RectangleRed" Style="{DynamicResource RecTangleStyle}" MouseDown="RectangleRed_OnMouseDown" Grid.Row="1" Grid.Column="3"  Grid.ColumnSpan="2" Fill="Red" />
+        <Rectangle Name="RectangleYellow" Style="{DynamicResource RecTangleStyle}" MouseDown="RectangleYellow_OnMouseDown" Grid.Row="1" Grid.Column="5" Grid.ColumnSpan="2" Fill="Yellow" />
+
+        <Label Name="LabelStroke" Style="{DynamicResource LabelStyle}" Grid.Column="0" Grid.Row="2" Content="Stroke" />
+        <Label Name="LabelColor" Style="{DynamicResource LabelStyle}"  Background="{Binding BindingColorFillStroke}" Grid.Column="7" Grid.ColumnSpan="2" Grid.Row="2"  />
+
+        <Rectangle Name="RectangleStrokeGreen" Style="{DynamicResource RecTangleStyle}" MouseDown="RectangleStrokeGreen_OnMouseDown" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" Fill="Green" />
+        <Rectangle Name="RectangleStrokeRed" Style="{DynamicResource RecTangleStyle}" MouseDown="RectangleStrokeRed_OnMouseDown" Grid.Row="2" Grid.Column="3"  Grid.ColumnSpan="2" Fill="Red" />
+        <Rectangle Name="RectangleStrokeYellow" Style="{DynamicResource RecTangleStyle}" MouseDown="RectangleStrokeYellow_OnMouseDown" Grid.Row="2" Grid.Column="5" Grid.ColumnSpan="2" Fill="Yellow" />
+    </Grid>
+</Window>
