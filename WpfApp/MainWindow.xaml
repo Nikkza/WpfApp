@@ -32,7 +32,7 @@
         <Button Name="FreeHandButton"  Style="{StaticResource Flat_Button}" Grid.Row="0" Grid.Column="6"  Content="Draw"  Click="FreeHandButton_Click"/>
         <Button Name="ClearButton"  Style="{StaticResource Flat_Button}" Grid.Row="0" Grid.Column="8"  Content="Clear"   Click="ClearButton_Click" />
       
-        <Canvas  Name="MyCanvas" Style="{StaticResource CanvasStyle}"  Grid.Row="3"  Grid.ColumnSpan="4" Grid.Column="0"
+        <Canvas  Name="MyCanvas" Style="{StaticResource CanvasStyle}"  Grid.Row="3"  Grid.ColumnSpan="9" Grid.Column="0"
                  MouseDown="Canvas_MouseDown_1" MouseMove="Canvas_MouseMove_1" MouseUp="Canvas_MouseUp"/>
       
         <Separator Style="{DynamicResource VerticalSeparatorStyle}" Grid.Row="0" Grid.Column="1" />
