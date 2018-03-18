@@ -6,7 +6,7 @@
         <Setter Property="Margin" Value="0,10,0,10"/>
         <Setter Property="Height" Value="30"/>
         <Setter Property="Width" Value="70"/>
-        <Setter Property="Background" Value="WhiteSmoke"/>
+        <Setter Property="Foreground" Value="#eceff1"/>
         <Setter Property="FontFamily" Value="Arial Narrow"/>
         <Setter Property="FontSize" Value="12px"/>
         <Setter Property="FontWeight" Value="Bold"/>
