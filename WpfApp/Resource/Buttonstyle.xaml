@@ -5,7 +5,7 @@
     <Style x:Key="Flat_Button" TargetType="{x:Type Button}">
         <Setter Property="Width" Value="100"/>
         <Setter Property="Height" Value="50"/>
-        <Setter Property="Margin" Value="2"/>
+        <Setter Property="Margin" Value="0,30,0,10"/>
         <Setter Property="FontFamily" Value="Arial Narrow"/>
         <Setter Property="FontSize" Value="12px"/>
         <Setter Property="FontWeight" Value="Bold"/>
@@ -81,7 +81,7 @@
     <Style x:Key="VerticalSeparatorStyle" 
            TargetType="{x:Type Separator}"
            BasedOn="{StaticResource {x:Type Separator}}">
-        <Setter Property="Margin" Value="10,7,10,7"/>
+        <Setter Property="Margin" Value="10,30,10,10"/>
         <Setter Property="Background" Value="#607D8B"/>
         <Setter Property="LayoutTransform">
             <Setter.Value>

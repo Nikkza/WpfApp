@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp"
         mc:Ignorable="d"
-        Title="MainWindow" Height="500" Width="700">
+        Title="MainWindow" Height="500" Width="700" >
 
     <Grid Background="#263238">
         <Grid.RowDefinitions>
@@ -31,8 +31,10 @@
         <Button Name="RectangleButton"  Style="{StaticResource Flat_Button}" Grid.Row="0"  Grid.Column="4" Content="Rectangle"    Click="RectangleButton_Click"/>
         <Button Name="FreeHandButton"  Style="{StaticResource Flat_Button}" Grid.Row="0" Grid.Column="6"  Content="Draw"  Click="FreeHandButton_Click"/>
         <Button Name="ClearButton"  Style="{StaticResource Flat_Button}" Grid.Row="0" Grid.Column="8"  Content="Clear"   Click="ClearButton_Click" />
+      
         <Canvas  Name="MyCanvas" Style="{StaticResource CanvasStyle}"  Grid.Row="3"  Grid.ColumnSpan="4" Grid.Column="0"
                  MouseDown="Canvas_MouseDown_1" MouseMove="Canvas_MouseMove_1" MouseUp="Canvas_MouseUp"/>
+      
         <Separator Style="{DynamicResource VerticalSeparatorStyle}" Grid.Row="0" Grid.Column="1" />
         <Separator Style="{DynamicResource VerticalSeparatorStyle}" Grid.Row="0" Grid.Column="3" />
         <Separator Style="{DynamicResource VerticalSeparatorStyle}" Grid.Row="0" Grid.Column="5" />
