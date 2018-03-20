@@ -10,6 +10,7 @@
                 <ResourceDictionary Source="Resource/canvas.xaml"/>
                 <ResourceDictionary Source="Resource/RectangleDictonary.xaml"/>
                 <ResourceDictionary Source="Resource/Label.xaml"/>
+                <ResourceDictionary Source="Resource/Seperator.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
 </Application.Resources>

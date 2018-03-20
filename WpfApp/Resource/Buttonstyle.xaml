@@ -78,22 +78,4 @@
         </Style.Triggers>
     </Style>
 
-    <Style x:Key="VerticalSeparatorStyle" 
-           TargetType="{x:Type Separator}"
-           BasedOn="{StaticResource {x:Type Separator}}">
-        <Setter Property="Margin" Value="0,40,0,10"/>
-        <Setter Property="Background" Value="#607D8B"/>
-        <Setter Property="LayoutTransform">
-            <Setter.Value>
-                <TransformGroup>
-                    <TransformGroup.Children>
-                        <TransformCollection>
-                            <RotateTransform Angle="90"/>
-                        </TransformCollection>
-                    </TransformGroup.Children>
-                </TransformGroup>
-            </Setter.Value>
-        </Setter>
-    </Style>
-
 </ResourceDictionary>
