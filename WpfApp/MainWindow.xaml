@@ -5,10 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp"
         mc:Ignorable="d"
-        Title="MainWindow" Height="500" Width="700" >
+        Title="MainWindow" Height="600" Width="700" >
 
     <Grid Background="#263238">
         <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
@@ -32,7 +33,7 @@
         <Button Name="FreeHandButton"  Style="{StaticResource Flat_Button}" Grid.Row="0" Grid.Column="6"  Content="Draw"  Click="FreeHandButton_Click"/>
         <Button Name="ClearButton"  Style="{StaticResource Flat_Button}" Grid.Row="0" Grid.Column="8"  Content="Clear"   Click="ClearButton_Click" />
       
-        <Canvas  Name="MyCanvas" Style="{StaticResource CanvasStyle}"  Grid.Row="3"  Grid.ColumnSpan="9" Grid.Column="0"
+        <Canvas  Name="MyCanvas" Style="{StaticResource CanvasStyle}"  Grid.Row="4"  Grid.ColumnSpan="9" Grid.Column="0"
                  MouseDown="Canvas_MouseDown_1" MouseMove="Canvas_MouseMove_1" MouseUp="Canvas_MouseUp"/>
       
         <Separator Style="{DynamicResource VerticalSeparatorStyle}" Grid.Row="0" Grid.Column="1" />
@@ -53,5 +54,10 @@
         <Rectangle Name="RectangleStrokeGreen" Style="{DynamicResource RecTangleStyle}" MouseDown="RectangleStrokeGreen_OnMouseDown" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" Fill="#f50057" />
         <Rectangle Name="RectangleStrokeRed" Style="{DynamicResource RecTangleStyle}" MouseDown="RectangleStrokeRed_OnMouseDown" Grid.Row="2" Grid.Column="3"  Grid.ColumnSpan="2" Fill="#c51162" />
         <Rectangle Name="RectangleStrokeYellow" Style="{DynamicResource RecTangleStyle}" MouseDown="RectangleStrokeYellow_OnMouseDown" Grid.Row="2" Grid.Column="5" Grid.ColumnSpan="2" Fill="#f06292" />
+        <Label Name="LabelSliderValue" Style="{DynamicResource LabelStyle}" Grid.Column="7" Grid.ColumnSpan="2" Grid.Row="3"  />
+        <Slider Name="SL2" ValueChanged="SL2_ValueChanged" Minimum="1" Margin="0,15,0,0" Maximum="20" Grid.Row="3"  Grid.ColumnSpan="7" Grid.Column="1" />
+
+
+
     </Grid>
 </Window>

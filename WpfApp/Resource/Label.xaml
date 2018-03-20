@@ -5,10 +5,10 @@
     <Style x:Key="LabelStyle" TargetType="{x:Type Label}">
         <Setter Property="Margin" Value="0,10,0,10"/>
         <Setter Property="Height" Value="30"/>
-        <Setter Property="Width" Value="70"/>
+        <Setter Property="Width" Value="90"/>
         <Setter Property="Foreground" Value="#eceff1"/>
         <Setter Property="FontFamily" Value="Arial Narrow"/>
-        <Setter Property="FontSize" Value="12px"/>
+        <Setter Property="FontSize" Value="14px"/>
         <Setter Property="FontWeight" Value="Bold"/>
     </Style>
 

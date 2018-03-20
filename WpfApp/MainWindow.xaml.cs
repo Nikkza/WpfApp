@@ -20,10 +20,8 @@ namespace WpfApp
         private Point _currentPoint;
         private Point _startPoint;
         private Point _circleAncourPoint;
-
         private Rectangle _rect;
         private Ellipse _elips;
-
         private bool _butttonDrawClick;
         private bool _butttonLineClick;
         private bool _buttonRecClick;
@@ -31,8 +29,8 @@ namespace WpfApp
         private SolidColorBrush _changeColorFill;
         private SolidColorBrush _changeColorStroke;
 
-        private Brush _bindingColorFill;
-        public Brush BindingColorFill
+        private SolidColorBrush _bindingColorFill;
+        public SolidColorBrush BindingColorFill
         {
             get => _bindingColorFill;
             set
@@ -42,8 +40,8 @@ namespace WpfApp
             }
         }
 
-        private Brush _bindingColorStroke;
-        public Brush BindingColorFillStroke
+        private SolidColorBrush _bindingColorStroke;
+        public SolidColorBrush BindingColorFillStroke
         {
             get => _bindingColorStroke;
             set
@@ -61,68 +59,53 @@ namespace WpfApp
             DataContext = this;
         }
 
-       
-
-        private void FillColor(SolidColorBrush c, string color, Label l)
+        private SolidColorBrush FillColor(SolidColorBrush c, string color)
         {
             c = (SolidColorBrush)(new BrushConverter().ConvertFrom(color));
-            l.Content = c.Color;
-            BindingColorFill = c;
-
+            return c;
         }
 
         private void RectangleGreen_OnMouseDown(object sender, MouseButtonEventArgs e)
-        {           
-            _changeColorFill = (SolidColorBrush)(new BrushConverter().ConvertFrom("#f50057"));
-            LabelFillColor.Content = _changeColorFill;
-            BindingColorFill = _changeColorFill;
+        {
+            BindingColorFill = FillColor(_changeColorFill, "#f50057");
+            LabelFillColor.Content = BindingColorFill;
+            _changeColorFill = BindingColorFill;
         }
 
         private void RectangleRed_OnMouseDown(object sender, MouseButtonEventArgs e)
         {
-            _changeColorFill = (SolidColorBrush)(new BrushConverter().ConvertFrom("#c51162"));
-            LabelFillColor.Content = _changeColorFill;
-            BindingColorFill = _changeColorFill;
+            BindingColorFill = FillColor(_changeColorFill, "#c51162");
+            LabelFillColor.Content = BindingColorFill;
+            _changeColorFill = BindingColorFill;
         }
 
         private void RectangleYellow_OnMouseDown(object sender, MouseButtonEventArgs e)
         {
-            _changeColorFill = (SolidColorBrush)(new BrushConverter().ConvertFrom("#f06292"));
-            LabelFillColor.Content = _changeColorFill;
-            BindingColorFill = _changeColorFill;
-
+            BindingColorFill = FillColor(_changeColorFill, "#f06292");
+            LabelFillColor.Content = BindingColorFill;
+            _changeColorFill = BindingColorFill;
         }
 
         private void RectangleStrokeGreen_OnMouseDown(object sender, MouseButtonEventArgs e)
         {
-            _changeColorStroke = (SolidColorBrush)(new BrushConverter().ConvertFrom("#f50057"));
-            LabelColor.Content = _changeColorStroke.Color;
-            BindingColorFillStroke = _changeColorStroke;
+            BindingColorFillStroke = FillColor(_changeColorFill, "#f50057");
+            LabelColor.Content = BindingColorFillStroke;
+            _changeColorStroke = BindingColorFillStroke;
         }
 
         private void RectangleStrokeRed_OnMouseDown(object sender, MouseButtonEventArgs e)
         {
-            _changeColorStroke = (SolidColorBrush)(new BrushConverter().ConvertFrom("#c51162"));
-            LabelColor.Content = _changeColorStroke.Color;
-            BindingColorFillStroke = _changeColorStroke;
+            BindingColorFillStroke = FillColor(_changeColorFill, "#c51162");
+            LabelColor.Content = BindingColorFillStroke;
+            _changeColorStroke = BindingColorFillStroke;
         }
 
         private void RectangleStrokeYellow_OnMouseDown(object sender, MouseButtonEventArgs e)
         {
-            _changeColorStroke = (SolidColorBrush)(new BrushConverter().ConvertFrom("#f06292"));
-            LabelColor.Content = _changeColorStroke.Color;
-            BindingColorFillStroke = _changeColorStroke;
+            BindingColorFillStroke = FillColor(_changeColorFill, "#f06292");
+            LabelColor.Content = BindingColorFillStroke;
+            _changeColorStroke = BindingColorFillStroke;
         }
-
-        #region INotifyPropertyChanged Members
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        private void RaisePropertyChanged(string propertyName)
-        {
-            if (PropertyChanged != null)
-                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-        }
-        #endregion
 
         private void LineButton_Click(object sender, RoutedEventArgs e)
         {
@@ -130,7 +113,6 @@ namespace WpfApp
             _butttonDrawClick = false;
             _buttonRecClick = false;
             _buttonCircelClick = false;
-
         }
 
         private void EllipseButton_Click(object sender, RoutedEventArgs e)
@@ -173,7 +155,7 @@ namespace WpfApp
             _rect = new Rectangle
             {
                 Stroke = _changeColorStroke,
-                StrokeThickness = 3,
+                StrokeThickness = SL2.Value,
                 Fill = _changeColorFill
             };
             Canvas.SetLeft(_rect, _startPoint.X);
@@ -187,7 +169,7 @@ namespace WpfApp
             var line = new Line
             {
                 Stroke = _changeColorStroke,
-                StrokeThickness = 5,
+                StrokeThickness = SL2.Value,
                 X1 = startPoint.X,
                 Y1 = startPoint.Y,
                 X2 = startPoint.X,
@@ -203,7 +185,7 @@ namespace WpfApp
             _elips = new Ellipse
             {
                 Stroke = _changeColorStroke,
-                StrokeThickness = 3,
+                StrokeThickness = SL2.Value,
                 Fill = _changeColorFill
             };
             MyCanvas.Children.Add(_elips);
@@ -213,7 +195,7 @@ namespace WpfApp
         {
             Point lineEnd = e.GetPosition(MyCanvas);
             _line = new Line();
-            _line.StrokeThickness = 5;
+            _line.StrokeThickness = SL2.Value;
             _line.Stroke = _changeColorStroke;
             _line.X1 = _currentPoint.X;
             _line.Y1 = _currentPoint.Y;
@@ -325,7 +307,22 @@ namespace WpfApp
             }
         }
 
+        #region INotifyPropertyChanged Members
+        public event PropertyChangedEventHandler PropertyChanged;
 
+        private void RaisePropertyChanged(string propertyName)
+        {
+            if (PropertyChanged != null)
+                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+        }
+        #endregion
+
+        private void SL2_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+
+            double value = SL2.Value;
+            LabelSliderValue.Content = "Value: " + value.ToString("0") + "/" + SL2.Maximum;
+        }
     }
 
 }
