@@ -64,6 +64,7 @@ namespace WpfApp
             BindingColorFill = FillColor(_changeColorFill, "#f50057");
             LabelFillColor.Content = BindingColorFill;
             _changeColorFill = BindingColorFill;
+          
         }
 
         private void RectangleRed_OnMouseDown(object sender, MouseButtonEventArgs e)
@@ -71,6 +72,7 @@ namespace WpfApp
             BindingColorFill = FillColor(_changeColorFill, "#c51162");
             LabelFillColor.Content = BindingColorFill;
             _changeColorFill = BindingColorFill;
+          
         }
 
         private void RectangleYellow_OnMouseDown(object sender, MouseButtonEventArgs e)
@@ -333,6 +335,8 @@ namespace WpfApp
             double value = SL2.Value;
             LabelSliderValue.Content = "Value: " + value.ToString("0") + "/" + SL2.Maximum;
         }
+
+        
     }
 
 }
