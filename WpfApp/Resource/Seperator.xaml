@@ -4,7 +4,7 @@
     <Style x:Key="VerticalSeparatorStyle" 
            TargetType="{x:Type Separator}"
            BasedOn="{StaticResource {x:Type Separator}}">
-        <Setter Property="Margin" Value="0,40,0,10"/>
+        <Setter Property="Margin" Value="0,40,0,30"/>
         <Setter Property="Background" Value="#607D8B"/>
         <Setter Property="LayoutTransform">
             <Setter.Value>
@@ -18,5 +18,4 @@
             </Setter.Value>
         </Setter>
     </Style>
-
 </ResourceDictionary>
