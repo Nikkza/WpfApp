@@ -58,13 +58,7 @@ namespace WpfApp
             DataContext = this;
         }
 
-       
-        private SolidColorBrush FillColor(SolidColorBrush c, string color)
-        {
-            c = (SolidColorBrush)(new BrushConverter().ConvertFrom(color));
-            return c;
-        }
-
+        #region RectaangleMouseDownEvnts Colors
         private void RectangleGreen_OnMouseDown(object sender, MouseButtonEventArgs e)
         {
             BindingColorFill = FillColor(_changeColorFill, "#f50057");
@@ -106,7 +100,9 @@ namespace WpfApp
             LabelColor.Content = BindingColorFillStroke;
             _changeColorStroke = BindingColorFillStroke;
         }
+        #endregion
 
+        #region ButtonClickevent
         private void LineButton_Click(object sender, RoutedEventArgs e)
         {
             _butttonLineClick = true;
@@ -142,6 +138,15 @@ namespace WpfApp
         private void ClearButton_Click(object sender, RoutedEventArgs e)
         {
             MyCanvas.Children.Clear();
+        }
+
+        #endregion
+
+        #region Methods for all the shapes
+        private SolidColorBrush FillColor(SolidColorBrush c, string color)
+        {
+            c = (SolidColorBrush)(new BrushConverter().ConvertFrom(color));
+            return c;
         }
 
         private void MouseDownDraw(MouseButtonEventArgs e)
@@ -227,7 +232,6 @@ namespace WpfApp
         private void MouseMoveRecTangle(MouseEventArgs e)
         {
             var pos = e.GetPosition(MyCanvas);
-
             var x = Math.Min(pos.X, _startPoint.X);
             var y = Math.Min(pos.Y, _startPoint.Y);
             var w = Math.Max(pos.X, _startPoint.X) - x;
@@ -250,6 +254,9 @@ namespace WpfApp
             }
         }
 
+        #endregion
+
+        #region MouseEvents
         private void Canvas_MouseDown_1(object sender, MouseButtonEventArgs e)
         {
             if (e.ButtonState == MouseButtonState.Pressed && _butttonDrawClick)
@@ -309,6 +316,8 @@ namespace WpfApp
             }
         }
 
+        #endregion
+
         #region INotifyPropertyChanged Members
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -321,7 +330,6 @@ namespace WpfApp
 
         private void SL2_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-
             double value = SL2.Value;
             LabelSliderValue.Content = "Value: " + value.ToString("0") + "/" + SL2.Maximum;
         }
