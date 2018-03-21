@@ -149,7 +149,7 @@ namespace WpfApp
             _currentPoint = e.GetPosition(MyCanvas);
         }
 
-        private void MouseDownRctangel(MouseButtonEventArgs e)
+        private void MouseDownRectangle(MouseButtonEventArgs e)
         {
             _startPoint = e.GetPosition(MyCanvas);
             _rect = new Rectangle
@@ -188,6 +188,8 @@ namespace WpfApp
                 StrokeThickness = SL2.Value,
                 Fill = _changeColorFill
             };
+            Canvas.SetLeft(_elips, _circleAncourPoint.X);
+            Canvas.SetTop(_elips, _circleAncourPoint.Y);
             MyCanvas.Children.Add(_elips);
         }
 
@@ -257,7 +259,7 @@ namespace WpfApp
 
             if (e.ButtonState == MouseButtonState.Pressed && _buttonRecClick)
             {
-                MouseDownRctangel(e);
+                MouseDownRectangle(e);
             }
 
             if (e.ButtonState == MouseButtonState.Pressed && _butttonLineClick)

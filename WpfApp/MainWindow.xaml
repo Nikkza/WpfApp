@@ -54,8 +54,8 @@
         <Rectangle Name="RectangleStrokeGreen" Style="{DynamicResource RecTangleStyle}" MouseDown="RectangleStrokeGreen_OnMouseDown" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" Fill="#f50057" />
         <Rectangle Name="RectangleStrokeRed" Style="{DynamicResource RecTangleStyle}" MouseDown="RectangleStrokeRed_OnMouseDown" Grid.Row="2" Grid.Column="3"  Grid.ColumnSpan="2" Fill="#c51162" />
         <Rectangle Name="RectangleStrokeYellow" Style="{DynamicResource RecTangleStyle}" MouseDown="RectangleStrokeYellow_OnMouseDown" Grid.Row="2" Grid.Column="5" Grid.ColumnSpan="2" Fill="#f06292" />
-        <Label Name="LabelSliderValue" Style="{DynamicResource LabelStyle}" Grid.Column="7" Grid.ColumnSpan="2" Grid.Row="3"  />
-        <Slider Name="SL2" ValueChanged="SL2_ValueChanged" Minimum="1" Margin="0,15,0,0" Maximum="20" Grid.Row="3"  Grid.ColumnSpan="7" Grid.Column="1" />
+        <Label Name="LabelSliderValue" Style="{DynamicResource LabelStyle}" Grid.Column="3" Grid.ColumnSpan="2" Grid.Row="3"  />
+        <Slider Name="SL2" ValueChanged="SL2_ValueChanged" Minimum="1" Maximum="8" Margin="0,15,0,0"  Grid.Row="3"  Grid.ColumnSpan="2" Grid.Column="2" />
 
 
 
