@@ -15,7 +15,7 @@ namespace WpfApp
     /// 
     public partial class MainWindow : Window, INotifyPropertyChanged
     {
-        CircleHandler _circlehandler;
+    
         private Line _line;
         private Point _currentPoint;
         private Point _startPoint;
@@ -55,10 +55,10 @@ namespace WpfApp
         {
             InitializeComponent();
             _currentPoint = new Point();
-            _circlehandler = new CircleHandler();
             DataContext = this;
         }
 
+       
         private SolidColorBrush FillColor(SolidColorBrush c, string color)
         {
             c = (SolidColorBrush)(new BrushConverter().ConvertFrom(color));
