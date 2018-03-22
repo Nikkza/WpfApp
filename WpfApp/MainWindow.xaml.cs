@@ -55,8 +55,10 @@ namespace WpfApp
         {
             InitializeComponent();
             _currentPoint = new Point();
+            _changeColorFill = new SolidColorBrush(Color.FromRgb(0,0,0));
+            _changeColorStroke = new SolidColorBrush(Color.FromRgb(255,255,255));
             DataContext = this;
-        }
+        } 
 
         #region RectaangleMouseDownEvnts Colors
         private void RectangleGreen_OnMouseDown(object sender, MouseButtonEventArgs e)
