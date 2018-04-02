@@ -27,10 +27,10 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
-        <Button Name="LineButton" Style="{StaticResource Flat_Button}" Grid.Row="0" Grid.Column="0"  Content="Line"  Click="LineButton_Click" />
-        <Button Name="EllipseButton"  Style="{StaticResource Flat_Button}" Grid.Row="0"  Grid.Column="2"  Content="Circle"  Click="EllipseButton_Click"/>
-        <Button Name="RectangleButton"  Style="{StaticResource Flat_Button}" Grid.Row="0"  Grid.Column="4" Content="Rectangle"    Click="RectangleButton_Click"/>
-        <Button Name="FreeHandButton"  Style="{StaticResource Flat_Button}" Grid.Row="0" Grid.Column="6"  Content="Draw"  Click="FreeHandButton_Click"/>
+        <Button Name="LineButton" Style="{StaticResource Flat_Button}" Grid.Row="0" Grid.Column="0"  Content="Line"  Click="Button_Click" />
+        <Button Name="EllipseButton"  Style="{StaticResource Flat_Button}" Grid.Row="0"  Grid.Column="2"  Content="Circle"  Click="Button_Click"/>
+        <Button Name="RectangleButton"  Style="{StaticResource Flat_Button}" Grid.Row="0"  Grid.Column="4" Content="Rectangle"    Click="Button_Click"/>
+        <Button Name="FreeHandButton"  Style="{StaticResource Flat_Button}" Grid.Row="0" Grid.Column="6"  Content="Draw"  Click="Button_Click"/>
         <Button Name="ClearButton"  Style="{StaticResource Flat_Button}" Grid.Row="0" Grid.Column="8"  Content="Clear"   Click="ClearButton_Click" />
       
         <Canvas  Name="MyCanvas" Style="{StaticResource CanvasStyle}"  Grid.Row="4"  Grid.ColumnSpan="9" Grid.Column="0"

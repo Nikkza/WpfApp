@@ -15,17 +15,14 @@ namespace WpfApp
     /// 
     public partial class MainWindow : Window, INotifyPropertyChanged
     {
-    
+
         private Line _line;
         private Point _currentPoint;
         private Point _startPoint;
         private Point _circleAncourPoint;
         private Rectangle _rect;
         private Ellipse _elips;
-        private bool _butttonDrawClick;
-        private bool _butttonLineClick;
-        private bool _buttonRecClick;
-        private bool _buttonCircelClick;
+        private Button clickedButton;
         private SolidColorBrush _changeColorFill;
         private SolidColorBrush _changeColorStroke;
 
@@ -55,10 +52,10 @@ namespace WpfApp
         {
             InitializeComponent();
             _currentPoint = new Point();
-            _changeColorFill = new SolidColorBrush(Color.FromRgb(0,0,0));
-            _changeColorStroke = new SolidColorBrush(Color.FromRgb(255,255,255));
+            _changeColorFill = new SolidColorBrush(Color.FromRgb(0, 0, 0));
+            _changeColorStroke = new SolidColorBrush(Color.FromRgb(255, 255, 255));
             DataContext = this;
-        } 
+        }
 
         #region RectaangleMouseDownEvnts Colors
         private void RectangleGreen_OnMouseDown(object sender, MouseButtonEventArgs e)
@@ -66,7 +63,6 @@ namespace WpfApp
             BindingColorFill = FillColor(_changeColorFill, "#f50057");
             LabelFillColor.Content = BindingColorFill;
             _changeColorFill = BindingColorFill;
-          
         }
 
         private void RectangleRed_OnMouseDown(object sender, MouseButtonEventArgs e)
@@ -74,7 +70,6 @@ namespace WpfApp
             BindingColorFill = FillColor(_changeColorFill, "#c51162");
             LabelFillColor.Content = BindingColorFill;
             _changeColorFill = BindingColorFill;
-          
         }
 
         private void RectangleYellow_OnMouseDown(object sender, MouseButtonEventArgs e)
@@ -107,36 +102,10 @@ namespace WpfApp
         #endregion
 
         #region ButtonClickevent
-        private void LineButton_Click(object sender, RoutedEventArgs e)
-        {
-            _butttonLineClick = true;
-            _butttonDrawClick = false;
-            _buttonRecClick = false;
-            _buttonCircelClick = false;
-        }
 
-        private void EllipseButton_Click(object sender, RoutedEventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
-            _buttonCircelClick = true;
-            _butttonLineClick = false;
-            _butttonDrawClick = false;
-            _buttonRecClick = false;
-        }
-
-        private void RectangleButton_Click(object sender, RoutedEventArgs e)
-        {
-            _butttonLineClick = false;
-            _butttonDrawClick = false;
-            _buttonRecClick = true;
-            _buttonCircelClick = false;
-        }
-
-        private void FreeHandButton_Click(object sender, RoutedEventArgs e)
-        {
-            _butttonLineClick = false;
-            _butttonDrawClick = true;
-            _buttonRecClick = false;
-            _buttonCircelClick = false;
+            clickedButton = sender as Button;
         }
 
         private void ClearButton_Click(object sender, RoutedEventArgs e)
@@ -263,26 +232,26 @@ namespace WpfApp
         #region MouseEvents
         private void Canvas_MouseDown_1(object sender, MouseButtonEventArgs e)
         {
-            if (e.ButtonState == MouseButtonState.Pressed && _butttonDrawClick)
+            if (e.ButtonState == MouseButtonState.Pressed)
             {
-                MouseDownDraw(e);
-            }
+                switch (clickedButton.Content)
+                {
+                    case "Circle":
+                        MouseDownCircle(e);
+                        break;
 
-            if (e.ButtonState == MouseButtonState.Pressed && _buttonRecClick)
-            {
-                MouseDownRectangle(e);
-            }
+                    case "Draw":
+                        MouseDownDraw(e);
+                        break;
 
-            if (e.ButtonState == MouseButtonState.Pressed && _butttonLineClick)
-            {
-                MouseDownLine(e);
-            }
+                    case "Line":
+                        MouseDownLine(e);
+                        break;
 
-            if (e.ButtonState == MouseButtonState.Pressed && _buttonCircelClick)
-            {
-
-                MouseDownCircle(e);
-                //_circlehandler.CircleAdd(_circleAncourPoint, e, MyCanvas, _changeColorStroke, _changeColorFill);
+                    case "Rectangle":
+                        MouseDownRectangle(e);
+                        break;
+                }
             }
         }
 
@@ -293,30 +262,29 @@ namespace WpfApp
 
         private void Canvas_MouseMove_1(object sender, MouseEventArgs e)
         {
-            if (e.LeftButton == MouseButtonState.Pressed && _butttonDrawClick)
+            if (e.LeftButton == MouseButtonState.Pressed)
             {
-                MouseMoveDraw(e);
-            }
+                switch (clickedButton.Content)
+                {
+                    case "Circle":
+                        MouseMoveCircle(e);
+                        break;
 
-            if (e.LeftButton == MouseButtonState.Pressed && _buttonCircelClick)
-            {
-                if (e.LeftButton == MouseButtonState.Released || _elips == null)
-                    return;
+                    case "Draw":
+                        MouseMoveDraw(e);
+                        break;
 
-                MouseMoveCircle(e);
-            }
+                    case "Line":
+                        MouseMoveLine(e);
+                        break;
 
-            if (e.LeftButton == MouseButtonState.Pressed && _buttonRecClick)
-            {
-                if (e.LeftButton == MouseButtonState.Released || _rect == null)
-                    return;
+                    case "Rectangle":
+                        if (e.LeftButton == MouseButtonState.Released || _rect == null)
+                            return;
 
-                MouseMoveRecTangle(e);
-            }
-
-            if (e.LeftButton == MouseButtonState.Pressed && _butttonLineClick)
-            {
-                MouseMoveLine(e);
+                        MouseMoveRecTangle(e);
+                        break;
+                }
             }
         }
 
@@ -337,8 +305,5 @@ namespace WpfApp
             double value = SL2.Value;
             LabelSliderValue.Content = "Value: " + value.ToString("0") + "/" + SL2.Maximum;
         }
-
-        
     }
-
 }
