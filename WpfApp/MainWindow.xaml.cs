@@ -15,7 +15,6 @@ namespace WpfApp
     /// 
     public partial class MainWindow : Window, INotifyPropertyChanged
     {
-
         private Line _line;
         private Point _currentPoint;
         private Point _startPoint;
@@ -118,7 +117,7 @@ namespace WpfApp
         #region Methods for all the shapes
         private SolidColorBrush FillColor(SolidColorBrush c, string color)
         {
-            c = (SolidColorBrush)(new BrushConverter().ConvertFrom(color));
+            c = (SolidColorBrush)new BrushConverter().ConvertFrom(color);
             return c;
         }
 
