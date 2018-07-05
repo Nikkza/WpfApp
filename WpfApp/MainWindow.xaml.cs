@@ -22,7 +22,7 @@ namespace WpfApp
         private Point _circleAncourPoint;
         private Rectangle _rect;
         private Ellipse _elips;
-        private Button clickedButton;
+        private Button _clickedButton;
         private SolidColorBrush _changeColorFill;
         private SolidColorBrush _changeColorStroke;
 
@@ -105,7 +105,7 @@ namespace WpfApp
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            clickedButton = sender as Button;
+            _clickedButton = sender as Button;
         }
 
         private void ClearButton_Click(object sender, RoutedEventArgs e)
@@ -234,21 +234,21 @@ namespace WpfApp
         {
             if (e.ButtonState == MouseButtonState.Pressed)
             {
-                switch (clickedButton.Content)
+                switch (_clickedButton.Name)
                 {
-                    case "Circle":
+                    case "EllipseButton":
                         MouseDownCircle(e);
                         break;
 
-                    case "Draw":
+                    case "FreeHandButton":
                         MouseDownDraw(e);
                         break;
 
-                    case "Line":
+                    case "LineButton":
                         MouseDownLine(e);
                         break;
 
-                    case "Rectangle":
+                    case "RectangleButton":
                         MouseDownRectangle(e);
                         break;
                 }
@@ -264,7 +264,7 @@ namespace WpfApp
         {
             if (e.LeftButton == MouseButtonState.Pressed)
             {
-                switch (clickedButton.Content)
+                switch (_clickedButton.Content)
                 {
                     case "Circle":
                         MouseMoveCircle(e);
